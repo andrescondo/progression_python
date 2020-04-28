@@ -15,11 +15,10 @@ def reason():
 
 def formula_foreground(d):
     first = 0
-    reason_ = d
+    reason_f = d
     end = float(raw_input('Ingrese el último término: '))
     c = float(raw_input('Ingrese la cantidad de elementos dados: '))
-
-    first = float(end - (c - 1)* reason_)
+    first = float(end - (c - 1)* reason_f)
     return first
 
 
@@ -30,8 +29,8 @@ def foreground():
             [y]es
             [n]o
             [v]olver
-
             '''))
+
         if dife == 'y':
             r = float(raw_input('Ingrese la razon/diferencia: '))
             first_term = formula_foreground(r)
@@ -49,11 +48,34 @@ def foreground():
         elif dife == 'v':
             print('En proceso')
            
+    return result
 
+def formula_last_term(d):
+    end = 0
+    reason_e = d
+    first = float(raw_input('Ingrese el primer termino: '))
+    c = float(raw_input('Ingrese la cantidad de elementos: '))
+    end = first + (c - 1) * reason_e
+
+    return end
 
 
 def last_term():
-    pass
+
+    while True:
+        dife = str(raw_input('''
+            ¿Te dieron las razon/diferencia para el ejercicio?: 
+            [y]es
+            [n]o
+            [v]olver
+            '''))
+
+        if dife == 'y':
+            d = float(raw_input('Ingrese la razon/diferencia: '))
+            term_last =  formula_last_term(d)
+            print('El ultimo termino es: {}'.format(term_last))
+
+
 
 
 def sum():
@@ -74,14 +96,19 @@ def run():
 
         if excercise == 'p':
             foreground()
+            
         elif excercise == 'u':
             last_term()
+
         elif excercise == 'r':
             reason()
+
         elif excercise == 's':
             sum()
+
         elif excercise == 'c':
             break
+
         else:
            print(error)
 
