@@ -29,24 +29,18 @@ def foreground():
             [y]es
             [n]o
             [v]olver
+
             '''))
 
         if dife == 'y':
             r = float(raw_input('Ingrese la razon/diferencia: '))
             first_term = formula_foreground(r)
+            print('')
             print('El primer elemento de la progresion es: {}'.format(first_term))
 
         elif dife == 'n':
-            reason_first = reason()
-            print('La razon es: {}'.format(reason_first))
             print('')
-            first_term = formula_foreground(reason_first)
-            print('El primer elemento de la progresion es: {}'.format(first_term))
-
-
-
-        elif dife == 'v':
-            print('En proceso')
+            print(no_difference)
            
     return result
 
@@ -67,7 +61,6 @@ def last_term():
             ¿Te dieron las razon/diferencia para el ejercicio?: 
             [y]es
             [n]o
-            [v]olver
             '''))
 
         if dife == 'y':
@@ -75,9 +68,11 @@ def last_term():
             term_last =  formula_last_term(d)
             print('El ultimo termino es: {}'.format(term_last))
 
+        if dife == 'n':
+            print('')
+            print(no_difference)
 
-
-
+        
 def sum():
     pass
 
@@ -115,5 +110,6 @@ def run():
 
 if __name__ == '__main__':
     print('    === CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
+    no_difference = 'Para sacar la razon/diferencia se debe restar alguno de los terminos con el anterior' 
     error = 'Ingrese una de las letras entre los corchetes'
     run()
