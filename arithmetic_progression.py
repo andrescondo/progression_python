@@ -1,13 +1,25 @@
 #-*- coding:utf-8 -*-
 
 #Calculadora de progresiones aritmeticas
-def formula_foreground():
+
+def reason():
+    d = 0
+    end = float(raw_input('Ingrese el último término: '))
+    first = float(raw_input('Ingrese el primer término: '))
+    c = float(raw_input('Ingrese la cantidad de elementos dados: '))
+
+    d = (end - first) / (c - 1)
+
+    return d
+
+
+def formula_foreground(d):
     first = 0
+    reason_ = d
     end = float(raw_input('Ingrese el último término: '))
     c = float(raw_input('Ingrese la cantidad de elementos dados: '))
-    d = float(raw_input('Ingrese la razón/diferencia: '))
 
-    first = float(end - (c - 1)* d)
+    first = float(end - (c - 1)* reason_)
     return first
 
 
@@ -21,21 +33,28 @@ def foreground():
 
             '''))
         if dife == 'y':
-            first_term = formula_foreground()
+            r = float(raw_input('Ingrese la razon/diferencia: '))
+            first_term = formula_foreground(r)
             print('El primer elemento de la progresion es: {}'.format(first_term))
+
         elif dife == 'n':
-            print('En proceso')
+            reason_first = reason()
+            print('La razon es: {}'.format(reason_first))
+            print('')
+            first_term = formula_foreground(reason_first)
+            print('El primer elemento de la progresion es: {}'.format(first_term))
+
+
 
         elif dife == 'v':
-            run()
+            print('En proceso')
+           
 
 
 
 def last_term():
     pass
 
-def reason():
-    pass
 
 def sum():
     pass
@@ -64,10 +83,10 @@ def run():
         elif excercise == 'c':
             break
         else:
-           error
+           print(error)
 
 
 if __name__ == '__main__':
-    print('=== CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
-    error = str('Ingrese la letra entre los corchetes')
+    print('    === CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
+    error = 'Ingrese una de las letras entre los corchetes'
     run()
