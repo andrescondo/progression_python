@@ -1,40 +1,73 @@
 #-*- coding:utf-8 -*-
 
 #Calculadora de progresiones aritmeticas
+def formula_foreground():
+    first = 0
+    end = float(raw_input('Ingrese el último término: '))
+    c = float(raw_input('Ingrese la cantidad de elementos dados: '))
+    d = float(raw_input('Ingrese la razón/diferencia: '))
 
-def with_difference(primer, segundo, d):
-    result = 0
+    first = float(end - (c - 1)* d)
+    return first
 
-    result = float((primer + segundo) / d)
 
-    return result
+def foreground():
+    while True:
+        dife = str(raw_input('''
+            ¿Te dieron las razon/diferencia para el ejercicio?: 
+            [y]es
+            [n]o
+            [v]olver
+
+            '''))
+        if dife == 'y':
+            first_term = formula_foreground()
+            print('El primer elemento de la progresion es: {}'.format(first_term))
+        elif dife == 'n':
+            print('En proceso')
+
+        elif dife == 'v':
+            run()
+
+
+
+def last_term():
+    pass
+
+def reason():
+    pass
+
+def sum():
+    pass
 
 
 def run():
-    primer = int(raw_input('Ingrese el primer término: '))
-    segundo = int(raw_input('Ingrese el segundo término: '))
-    
     while True:
-        dife = str(raw_input('''
-            Se le dío el valor de la diferencia?
-            [s]i
-            [n]o
+        excercise = str(raw_input('''
+            ¿Qué se les pidio encontrar?
+
+            [p]rimer término
+            [u]ltimo término
+            [r]azón / diferencia
+            [s]uma de valores
+            [c]errar
             '''))
-        if dife =='s':
-            d = int(raw_input('Ingrese la diferencia: '))
-            cal_with_diference = with_difference(primer, segundo, d)
-            print('El resultado es: {}'.format(cal_with_diference))
 
-        if dife == 'n':
-            no_difference(a1, a2)
-
+        if excercise == 'p':
+            foreground()
+        elif excercise == 'u':
+            last_term()
+        elif excercise == 'r':
+            reason()
+        elif excercise == 's':
+            sum()
+        elif excercise == 'c':
+            break
         else:
-            print('Ingrese la letra entre los corchetes')
-
-
-
+           error
 
 
 if __name__ == '__main__':
-    print('INGRESE LOS DATOS DE LA PROGRESIÓN ARITMÉTICA')
+    print('=== CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
+    error = str('Ingrese la letra entre los corchetes')
     run()
