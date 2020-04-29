@@ -1,12 +1,13 @@
 #-*- coding:utf-8 -*-
 
-#Calculadora de progresiones aritmeticas
+# Muchas palabras no llevan tilde por que se esta desarrolando en windows en consola
+# Y para usuarios que la ejecuten en consola puedan ver las palabras bien
 
 def reason():
     print('-- C A L C U L A R - L A - D I F E R E N C I A --')
     d = 0
-    end = float(raw_input('Ingrese el último término: '))
-    first = float(raw_input('Ingrese el primer término: '))
+    end = float(raw_input('Ingrese el ultimo termino: '))
+    first = float(raw_input('Ingrese el primer termino: '))
     c = float(raw_input('Ingrese la cantidad de elementos dados: '))
 
     d = (end - first) / (c - 1)
@@ -123,16 +124,15 @@ def sum():
 
 
 def run():
-    print('    === CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
+    print('    === CALCULADORA DE PROGRESION ARITMETICA ===')
     while True:
         excercise = str(raw_input('''
-            ¿Qué se les pidio encontrar?
+            ¿Que se les pidio encontrar?
 
-            [p]rimer término
-            [u]ltimo término
-            [r]azón / diferencia
+            [p]rimer termino
+            [u]ltimo termino
+            [r]azon / diferencia
             [s]uma de valores
-            [c]errar
             '''))
 
         if excercise == 'p':
@@ -146,9 +146,6 @@ def run():
 
         elif excercise == 's':
             sum()
-
-        elif excercise == 'c':
-            break
 
         else:
            print(error)
