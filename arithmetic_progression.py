@@ -3,14 +3,21 @@
 #Calculadora de progresiones aritmeticas
 
 def reason():
+    print('-- C A L C U L A R - L A - D I F E R E N C I A --')
     d = 0
     end = float(raw_input('Ingrese el último término: '))
     first = float(raw_input('Ingrese el primer término: '))
     c = float(raw_input('Ingrese la cantidad de elementos dados: '))
 
     d = (end - first) / (c - 1)
+    reason_d = d
 
+    print('La razon/diferencia es : {}'.format(reason_d))
+    print('''
+
+        ''')
     return d
+    
 
 
 def formula_foreground(d):
@@ -23,6 +30,8 @@ def formula_foreground(d):
 
 
 def foreground():
+    print('-- C A L C U L A R - E L - P R I M E R - T E R M I N O --')
+
     while True:
         dife = str(raw_input('''
             ¿Te dieron las razon/diferencia para el ejercicio?: 
@@ -33,15 +42,19 @@ def foreground():
             '''))
 
         if dife == 'y':
-            r = float(raw_input('Ingrese la razon/diferencia: '))
-            first_term = formula_foreground(r)
+            d = float(raw_input('Ingrese la razon/diferencia: '))
+            first_term = formula_foreground(d)
             print('')
             print('El primer elemento de la progresion es: {}'.format(first_term))
 
         elif dife == 'n':
             print('')
             print(no_difference)
-           
+        elif dife == 'v':
+            run()
+        else:
+            print(error)
+
     return result
 
 def formula_last_term(d):
@@ -55,12 +68,13 @@ def formula_last_term(d):
 
 
 def last_term():
-
+    print('-- C A L C U L A R - E L - U L T I M O - T E R M I N O --')
     while True:
         dife = str(raw_input('''
             ¿Te dieron las razon/diferencia para el ejercicio?: 
             [y]es
             [n]o
+            [v]olver
             '''))
 
         if dife == 'y':
@@ -68,16 +82,48 @@ def last_term():
             term_last =  formula_last_term(d)
             print('El ultimo termino es: {}'.format(term_last))
 
-        if dife == 'n':
+        elif dife == 'n':
             print('')
             print(no_difference)
 
-        
+        elif dife == 'v':
+            run()
+        else:
+            print(error)
+
+
+def sum_term():  
+    su = 0
+    first = float(raw_input('Ingrese el primer termino: '))
+    end = float(raw_input('Ingrese el ultimo termino: '))
+    c = float(raw_input('Ingrese la cantidad de elementos: '))
+
+    su = ((end + first) * c ) / 2
+    return su
+
+
 def sum():
-    pass
+    print('-- C A L C U L A R - L A - S U M A - D E - T O D O S - L O S - T E R M I N O S --')
+    
+    while True:
+        suma = str(raw_input('''
+            Hacer las operacion:
+            [s]i
+            [v]olver
+            '''))
+        if suma == 's':
+            sum_s =  sum_term()
+            print('La suma de los terminos es: {}'.format(sum_s))
+
+        elif suma == 'v':
+            run()
+        else:
+            print(error)
+
 
 
 def run():
+    print('    === CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
     while True:
         excercise = str(raw_input('''
             ¿Qué se les pidio encontrar?
@@ -109,7 +155,6 @@ def run():
 
 
 if __name__ == '__main__':
-    print('    === CALCULADORA DE PROGRESIÓN ARITMÉTICA ===')
-    no_difference = 'Para sacar la razon/diferencia se debe restar alguno de los terminos con el anterior' 
+    no_difference = 'Para sacar la razon/diferencia se debe restar dos terminos, si estos son seguidos\nUn termino menos el anterior (a2 - a1 = d) y vuelve a intentar la formula' 
     error = 'Ingrese una de las letras entre los corchetes'
     run()
